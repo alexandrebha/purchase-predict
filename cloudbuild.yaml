@@ -17,6 +17,7 @@ steps:
     env:
       - "ENV=$BRANCH_NAME"
       - "MLFLOW_SERVER=$_MLFLOW_SERVER"
+      - "MLFLOW_TRACKING_URI=/tmp/mlruns"
       - "DO_NOT_TRACK=1"
       - "UV_CACHE_DIR=/root/.cache/uv"
     waitFor: ["CI"]
