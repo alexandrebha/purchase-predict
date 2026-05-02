@@ -2,5 +2,5 @@
 test_ratio: 0.3
 automl_max_evals: 10
 
-gcp_project_id: "ton id"
-gcs_primary_folder: "ton lien"
+gcp_project_id: "project-41424f01-3f92-43c5-9f5"
+gcs_primary_folder: "purchase-predict-cytech/primary.csv"
