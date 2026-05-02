@@ -1,0 +1,29 @@
+steps:
+  - name: "ghcr.io/astral-sh/uv:python3.12-trixie-slim"
+    id: CI
+    entrypoint: /bin/sh
+    args:
+      - "-c"
+      - "chmod a+x install.sh && ./install.sh && uv sync && uv run pytest ."
+    env:
+      - "UV_CACHE_DIR=/root/.cache/uv"
+
+  - name: "ghcr.io/astral-sh/uv:python3.12-trixie-slim"
+    id: CD
+    entrypoint: /bin/bash
+    args:
+      - "-c"
+      - "chmod a+x install.sh && ./install.sh && uv run kedro run"
+    env:
+      - "ENV=$BRANCH_NAME"
+      - "MLFLOW_SERVER=$_MLFLOW_SERVER"
+      - "DO_NOT_TRACK=1"
+      - "UV_CACHE_DIR=/root/.cache/uv"
+    waitFor: ["CI"]
+
+options:
+  machineType: "N1_HIGHCPU_8"
+
+timeout: 1200s
+
+logs_bucket: gs://purchase-predict-data-alex/logs_cloud_build

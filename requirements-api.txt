@@ -1,0 +1,8 @@
+flask
+gunicorn
+lightgbm
+scikit-learn
+pandas
+joblib
+mlflow==3.0.1
+google-cloud-storage
