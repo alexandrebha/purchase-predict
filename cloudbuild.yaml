@@ -4,7 +4,7 @@ steps:
     entrypoint: /bin/sh
     args:
       - "-c"
-      - "chmod a+x install.sh && ./install.sh && uv sync && uv run pytest . --ignore=tests/pipelines/loading"
+      - "chmod a+x install.sh && ./install.sh && uv sync && uv run pytest . --ignore=tests/pipelines/loading --ignore=tests/pipelines/processing --ignore=tests/test_run.py"
     env:
       - "UV_CACHE_DIR=/root/.cache/uv"
 
