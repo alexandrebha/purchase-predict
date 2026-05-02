@@ -25,5 +25,3 @@ options:
   machineType: "N1_HIGHCPU_8"
 
 timeout: 1200s
-
-logs_bucket: gs://purchase-predict-data-alex/logs_cloud_build
