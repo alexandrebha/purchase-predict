@@ -14,10 +14,12 @@ from lightgbm.sklearn import LGBMClassifier
 from sklearn.base import BaseEstimator, clone
 from sklearn.metrics import f1_score
 from sklearn.model_selection import RepeatedKFold
+import os
+
 import mlflow
 import mlflow.sklearn
 
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+mlflow.set_tracking_uri(os.environ.get("MLFLOW_SERVER", "file:///tmp/mlruns"))
 warnings.filterwarnings("ignore")
 
 
